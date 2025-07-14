@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choti Golpo | Stories from the Road</title>
+    
+    <!-- Google Fonts: An elegant serif for headings and a clean sans-serif for body -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        /* --- CSS Custom Properties (Theme: The Nomad's Chronicle) --- */
+        :root {
+            --background-beige: #FDF8F0;
+            --surface-sand: #FFFFFF;
+            --text-dark-brown: #433A3F;
+            --text-medium-gray: #757575;
+            --accent-orange: #E86A33;
+            --dark-green: #2C3E2A;
+            --shadow-light: 0 5px 15px rgba(0, 0, 0, 0.05);
+            --shadow-medium: 0 8px 30px rgba(0, 0, 0, 0.1);
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Lato', sans-serif;
+        }
+
+        /* --- Global Styles & Reset --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--font-body);
+            background-color: var(--background-beige);
+            color: var(--text-dark-brown);
+            line-height: 1.7;
+            font-size: 17px;
+        }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+        h1, h2, h3, h4 { font-family: var(--font-heading); color: var(--text-dark-brown); }
+        a { text-decoration: none; color: var(--accent-orange); transition: color 0.3s ease; }
+        a:hover { color: #c45425; }
+        img { max-width: 100%; height: auto; display: block; border-radius: 8px; }
+
+        /* --- Header --- */
+        .site-header {
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            padding: 25px 0;
+            transition: background-color 0.3s ease, padding 0.3s ease, box-shadow 0.3s ease;
+        }
+        .site-header.scrolled {
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 15px 0;
+            box-shadow: var(--shadow-light);
+            backdrop-filter: blur(5px);
+        }
+        .site-header .container { display: flex; justify-content: space-between; align-items: center; }
+        .logo a { font-family: var(--font-heading); font-size: 1.8rem; color: var(--dark-green); }
+        .site-header.scrolled .logo a { color: var(--dark-green); }
+        .main-nav ul { list-style: none; display: flex; gap: 35px; }
+        .main-nav a { font-weight: 700; color: var(--surface-sand); }
+        .site-header.scrolled .main-nav a { color: var(--text-dark-brown); }
+        .main-nav a.active, .main-nav a:hover { color: var(--accent-orange); }
+
+        /* --- Hero Section --- */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSToVCSxkxWLSNte9vGKIZ61sDzxFFkqVk4iVFonzsn-Csxp1X0FEAURrYl&s=10') no-repeat center center/cover;
+            position: relative;
+        }
+        .hero-content h1 { font-size: 4.5rem; color: #fff; margin-bottom: 1rem; }
+        .hero-content p { font-size: 1.2rem; font-family: var(--font-body); letter-spacing: 1px; }
+        .scroll-down { position: absolute; bottom: 30px; font-size: 2rem; color: #fff; animation: bounce 2s infinite; }
+        @keyframes bounce { 0%, 20%, 50%, 80%, 100% { transform: translateY(0); } 40% { transform: translateY(-20px); } 60% { transform: translateY(-10px); } }
+
+        /* --- Main Content Layout --- */
+        .main-layout {
+            padding: 80px 0;
+            display: grid;
+            grid-template-columns: 2.5fr 1fr;
+            gap: 60px;
+        }
+        
+        .section-title { font-size: 2.5rem; text-align: center; margin-bottom: 40px; }
+
+        /* --- Featured Post --- */
+        .featured-post { margin-bottom: 60px; }
+        .featured-post-card {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+            background: var(--surface-sand);
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: var(--shadow-medium);
+        }
+        .featured-post-card .post-image { max-height: 500px; object-fit: cover; }
+        .featured-post-card .post-category {
+            display: inline-block;
+            background: var(--accent-orange);
+            color: #fff;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+        .featured-post-card .post-title { font-size: 2.5rem; margin-bottom: 15px; line-height: 1.2; }
+        .featured-post-card .post-excerpt { font-size: 1.1rem; color: var(--text-medium-gray); }
+
+        /* --- Posts Grid --- */
+        .posts-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; }
+        .post-card {
+            background: var(--surface-sand);
+            border-radius: 8px;
+            box-shadow: var(--shadow-light);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .post-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-medium); }
+        .post-card .post-image { height: 220px; width: 100%; object-fit: cover; border-bottom-left-radius: 0; border-bottom-right-radius: 0; }
+        .post-card-content { padding: 25px; }
+        .post-card-content .post-category { font-weight: 700; font-size: 0.8rem; text-transform: uppercase; color: var(--accent-orange); margin-bottom: 10px; }
+        .post-card-content .post-title { font-size: 1.5rem; margin-bottom: 10px; }
+        .post-card-content .post-meta { font-size: 0.9rem; color: var(--text-medium-gray); }
+
+        /* --- Sidebar --- */
+        .sidebar { position: sticky; top: 120px; align-self: start; }
+        .sidebar-widget { background: var(--surface-sand); padding: 30px; border-radius: 8px; box-shadow: var(--shadow-light); margin-bottom: 40px; }
+        .widget-title { font-size: 1.5rem; margin-bottom: 20px; position: relative; padding-bottom: 10px; }
+        .widget-title::after { content: ''; position: absolute; bottom: 0; left: 0; width: 40px; height: 3px; background-color: var(--accent-orange); }
+        .about-me-widget img { width: 100px; height: 100px; border-radius: 50%; object-fit: cover; margin: 0 auto 15px; display: block; }
+        .about-me-widget { text-align: center; }
+        
+        .category-list li { list-style: none; padding: 10px 0; border-bottom: 1px solid #eee; }
+        .category-list li:last-child { border: none; }
+        .category-list a { color: var(--text-dark-brown); font-weight: 700; display: flex; justify-content: space-between; }
+        .category-list span { color: var(--text-medium-gray); }
+
+        .instagram-widget .insta-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+        .instagram-widget .insta-photo { background-color: #eee; padding-bottom: 100%; position: relative; overflow: hidden; }
+        .instagram-widget .insta-photo img { position: absolute; width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease; }
+        .instagram-widget .insta-photo:hover img { transform: scale(1.1); }
+        
+        /* --- Footer --- */
+        .site-footer { background: var(--dark-green); color: #ccc; padding: 60px 0 30px; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
+        .footer-widget h4 { color: #fff; font-family: var(--font-heading); margin-bottom: 15px; }
+        .footer-widget p, .footer-widget a { color: #bbb; font-size: 0.9rem; }
+        .footer-widget ul { list-style: none; }
+        .footer-widget li { margin-bottom: 10px; }
+        .footer-socials a { font-size: 1.4rem; margin-right: 15px; }
+        .footer-bottom { text-align: center; padding-top: 30px; border-top: 1px solid #4a5c48; font-size: 0.9rem; }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 1024px) {
+            .main-layout { grid-template-columns: 1fr; }
+            .sidebar { grid-row: 1; position: static; margin-bottom: 60px; }
+            .posts-grid { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+        }
+        @media (max-width: 768px) {
+            body { font-size: 16px; }
+            .hero-content h1 { font-size: 3rem; }
+            .featured-post-card { grid-template-columns: 1fr; text-align: center; }
+            .posts-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; text-align: center; }
+            .main-nav ul { display: none; } /* Simplified for demo, a real site would use a hamburger menu */
+        }
+    </style>
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="container">
+            <h1 class="logo"><a href="/">Choti Golpo</a></h1>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="/" class="active">Home</a></li>
+                    <li><a href="/ceta">Cetagory</a></li>
+                    <li><a href="/hot">Top Stories</a></li>
+                    <li><a href="/story">Your Story</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Choti Golpo</h1>
+                <p>এই সাইটে হরেক রকমের গল্প পড়তে পারছেন পাঠকরা, যৌনতা কেন্দ্রিক সব ধরনের ক্যাটাগরির গল্পই লিস্ট আকারে পাওয়ার পাশাপাশি পাঠকরা সার্চ অপশন ব্যবহার করে ও নিজেদের মনের মত গল্প ও লেখকের ছাপানো গল্প খুঁজে নিতে পারেন।</p>
+            </div>
+            <a href="#content-start" class="scroll-down"><i class="fas fa-chevron-down"></i></a>
+        </section>
+
+        <div id="content-start" class="container main-layout">
+            
+            <div class="posts-column">
+                <!-- Featured Post -->
+                <section class="featured-post">
+                    <article class="featured-post-card">
+                        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80" alt="Majestic mountain valley" class="post-image">
+                        <div class="post-content">
+                            <span class="post-category">Featured Story</span>
+                            <h2 class="post-title"><a href="#">Finding Solitude in the Heart of the Dolomites</a></h2>
+                            <p class="post-excerpt">Three weeks, one backpack, and a journey into the breathtaking silence of the Italian Alps. A story of challenge, reflection, and the profound beauty of being alone with nature.</p>
+                        </div>
+                    </article>
+                </section>
+                
+                <h2 class="section-title">Recent Stories</h2>
+                
+                <!-- Posts Grid -->
+                <div class="posts-grid">
+                    <article class="post-card">
+                        <a href="#"><img src="https://images.unsplash.com/photo-1533106418989-88406e758cae?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1674&q=80" alt="Colorful street in a historic city" class="post-image"></a>
+                        <div class="post-card-content">
+                            <p class="post-category">Urban Exploration</p>
+                            <h3 class="post-title"><a href="#">The Hidden Colors of Lisbon's Alleys</a></h3>
+                            <p class="post-meta">Oct 22, 2023</p>
+                        </div>
+                    </article>
+                    <article class="post-card">
+                        <a href="#"><img src="https://images.unsplash.com/photo-1504150558240-0b4fd2de14f4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80" alt="Desert dunes at sunset" class="post-image"></a>
+                        <div class="post-card-content">
+                            <p class="post-category">Desertscapes</p>
+                            <h3 class="post-title"><a href="#">Chasing the Sunset in Wadi Rum</a></h3>
+                            <p class="post-meta">Oct 15, 2023</p>
+                        </div>
+                    </article>
+                    <article class="post-card">
+                        <a href="#"><img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80" alt="Canoe on a calm lake" class="post-image"></a>
+                        <div class="post-card-content">
+                            <p class="post-category">Lake Life</p>
+                            <h3 class="post-title"><a href="#">A Quiet Morning on Lake Bled</a></h3>
+                            <p class="post-meta">Oct 08, 2023</p>
+                        </div>
+                    </article>
+                    <article class="post-card">
+                        <a href="#"><img src="https://images.unsplash.com/photo-1518684079-3c830dcef090?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1674&q=80" alt="Intricate architecture of a mosque" class="post-image"></a>
+                        <div class="post-card-content">
+                            <p class="post-category">Cultural Deep Dive</p>
+                            <h3 class="post-title"><a href="#">The Geometry of a Marrakesh Morning</a></h3>
+                            <p class="post-meta">Sep 30, 2023</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+
+            <aside class="sidebar">
+                <div class="sidebar-widget about-me-widget">
+                    <h3 class="widget-title">About the Author</h3>
+                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Photo of the author">
+                    <h4>Alex Rivers</h4>
+                    <p>Former architect, now full-time traveler. I seek out stories in landscapes, cities, and the people who inhabit them. Welcome to my journey.</p>
+                </div>
+                
+                <div class="sidebar-widget">
+                    <h3 class="widget-title">Featured Destinations</h3>
+                    <ul class="category-list">
+                        <li><a href="#">The Alps <span>(5)</span></a></li>
+                        <li><a href="#">Southeast Asia <span>(12)</span></a></li>
+                        <li><a href="#">The Middle East <span>(8)</span></a></li>
+                        <li><a href="#">South America <span>(3)</span></a></li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-widget instagram-widget">
+                    <h3 class="widget-title">On Instagram</h3>
+                    <div class="insta-grid">
+                        <a href="#" class="insta-photo"><img src="https://images.unsplash.com/photo-1542051841857-5f90071e7989?w=400" alt="Tokyo street"></a>
+                        <a href="#" class="insta-photo"><img src="https://images.unsplash.com/photo-1528181304800-259b08848526?w=400" alt="Icelandic waterfall"></a>
+                        <a href="#" class="insta-photo"><img src="https://images.unsplash.com/photo-1564507592333-c60657eea523?w=400" alt="Resort in Bali"></a>
+                        <a href="#" class="insta-photo"><img src="https://images.unsplash.com/photo-1539037116277-4db20889f2d4?w=400" alt="Amalfi Coast"></a>
+                        <a href="#" class="insta-photo"><img src="https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?w=400" alt="Venice canals"></a>
+                        <a href="#" class="insta-photo"><img src="https://images.unsplash.com/photo-1534430480872-3498386e7856?w=400" alt="Kyoto temple"></a>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-widget">
+                    <h4>The Nomad's Chronicle</h4>
+                    <p>Exploring the world, one story at a time. This journal is a collection of moments, reflections, and guides from my travels around the globe.</p>
+                </div>
+                <div class="footer-widget">
+                    <h4>Explore</h4>
+                    <ul>
+                        <li><a href="#">Start Here</a></li>
+                        <li><a href="#">Travel Guides</a></li>
+                        <li><a href="#">Photo Essays</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-widget">
+                    <h4>Connect</h4>
+                    <div class="footer-socials">
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                © 2023 The Nomad's Chronicle. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple script for header background change on scroll
+        const header = document.querySelector('.site-header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    </script>
+
+</body>
+</html>
