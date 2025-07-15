@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Category: The Alps | The Nomad's Chronicle</title>
+    <title>
+বস্তিবাড়িতে মায়ের অধিকার আদায়ে ছেলের সাথে মিলন পর্ব ১ | Choti Golpo</title>
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -37,7 +38,7 @@
             background-color: var(--background-beige);
             color: var(--text-dark-brown);
             line-height: 1.7;
-            font-size: 17px;
+            font-size: 18px;
         }
         .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
         h1, h2, h3, h4 { font-family: var(--font-heading); color: var(--text-dark-brown); }
@@ -59,65 +60,98 @@
         .logo a { font-family: var(--font-heading); font-size: 1.8rem; color: var(--dark-green); }
         .main-nav ul { list-style: none; display: flex; gap: 35px; }
         .main-nav a { font-weight: 700; color: var(--text-dark-brown); }
-        .main-nav a:hover, .main-nav a.active { color: var(--accent-orange); }
+        .main-nav a:hover { color: var(--accent-orange); }
+
+        /* --- Sticky Social Share Bar --- */
+        .sticky-share-bar {
+            position: fixed; top: 50%; transform: translateY(-50%); left: 20px;
+            z-index: 999; display: flex; flex-direction: column; gap: 10px;
+        }
+        .sticky-share-bar a {
+            width: 45px; height: 45px; display: inline-flex; justify-content: center; align-items: center;
+            font-size: 1.1rem; color: var(--text-medium-gray); background-color: var(--surface-sand);
+            border: 1px solid var(--border-light); border-radius: 50%; box-shadow: var(--shadow-light);
+            transition: all 0.3s ease;
+        }
+        .sticky-share-bar a:hover {
+            color: #fff; background-color: var(--accent-orange);
+            border-color: var(--accent-orange); transform: scale(1.1);
+        }
+
+        /* --- Article Header --- */
+        .article-hero {
+            height: 60vh; min-height: 400px;
+            background: linear-gradient(rgba(44, 62, 42, 0.4), rgba(44, 62, 42, 0.4)), url('https://i.postimg.cc/Gpy9Ky6X/helping-my-mom-1.jpg') no-repeat center center/cover;
+            display: flex; flex-direction: column; justify-content: center;
+            align-items: center; text-align: center; color: #fff; padding: 20px;
+        }
+        .article-hero .post-category a {
+            background: rgba(232, 106, 51, 0.8); padding: 5px 15px; border-radius: 20px;
+            font-size: 0.9rem; font-weight: 700; margin-bottom: 20px; color: #fff;
+        }
+        .article-hero h1 { font-size: 3.5rem; color: #fff; line-height: 1.2; margin-bottom: 15px; }
+        .article-hero .article-meta { font-size: 1rem; }
+        .article-hero .article-meta span { margin: 0 10px; }
+
+        /* --- Main Content Layout --- */
+        .main-layout { padding: 60px 0; display: grid; grid-template-columns: 2.5fr 1fr; gap: 60px; align-items: flex-start; }
         
-        /* Category Page Header */
-        .page-header {
-            padding-top: 150px; padding-bottom: 50px; text-align: center;
-            background-color: #f8f3eb; border-bottom: 1px solid var(--border-light);
+        /* Article Content */
+        .article-content { background: var(--surface-sand); padding: 40px 50px; border-radius: 8px; box-shadow: var(--shadow-light); }
+        .article-body p { margin-bottom: 1.5rem; }
+        .article-body h3 { font-size: 1.8rem; margin-top: 2.5rem; margin-bottom: 1.2rem; }
+        
+        /* --- NEW: Post Tags --- */
+        .article-tags-container { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border-light); }
+        .article-tags-container h4 { font-family: var(--font-body); font-weight: 700; font-size: 1rem; margin-bottom: 1rem; color: var(--text-medium-gray); }
+        .tags-list { display: flex; flex-wrap: wrap; gap: 10px; }
+        .tags-list a {
+            background-color: var(--background-beige); border: 1px solid var(--border-light);
+            color: var(--text-medium-gray); padding: 5px 15px; border-radius: 20px;
+            font-size: 0.9rem; font-weight: 700;
         }
-        .page-header .header-subtitle {
-            text-transform: uppercase; font-weight: 700; letter-spacing: 1px;
-            font-size: 0.9rem; color: var(--text-medium-gray); margin-bottom: 10px;
-        }
-        .page-header .header-title { font-size: 3.5rem; margin-bottom: 10px; }
-        .page-header .story-count { font-size: 1rem; color: var(--text-medium-gray); }
+        .tags-list a:hover { background-color: var(--accent-orange); color: #fff; border-color: var(--accent-orange); }
 
-        /* Search System */
-        .search-section { padding: 40px 0; background-color: var(--surface-sand); }
-        .search-form {
-            display: flex; max-width: 700px; margin: 0 auto;
-            box-shadow: var(--shadow-medium); border-radius: 8px; overflow: hidden;
+        /* Author Box */
+        .post-author-box {
+            background: var(--surface-sand); padding: 30px; margin-top: 40px; border-radius: 8px;
+            box-shadow: var(--shadow-light); display: flex; align-items: center; gap: 25px;
         }
-        .search-form input[type="search"] {
-            flex: 1; border: none; padding: 18px 25px; font-size: 1.1rem;
-            font-family: var(--font-body); color: var(--text-dark-brown); outline: none;
-        }
-        .search-form button {
-            background-color: var(--dark-green); border: none; color: #fff;
-            padding: 0 30px; font-size: 1.1rem; font-weight: 700; cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-        .search-form button:hover { background-color: #1a2519; }
-        .search-form button i { margin-right: 10px; }
+        .post-author-box img { width: 90px; height: 90px; border-radius: 50%; }
 
-        /* Story Grid */
-        .category-grid-container { padding: 60px 0; }
-        .category-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 40px;
-        }
-        .post-card {
-            background: var(--surface-sand); border-radius: 8px; box-shadow: var(--shadow-light);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .post-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-medium); }
-        .post-card .post-image { height: 220px; width: 100%; object-fit: cover; border-bottom-left-radius: 0; border-bottom-right-radius: 0; }
-        .post-card-content { padding: 25px; }
-        .post-card-content .post-category { font-weight: 700; font-size: 0.8rem; text-transform: uppercase; color: var(--accent-orange); margin-bottom: 10px; }
-        .post-card-content .post-title { font-size: 1.5rem; margin-bottom: 10px; }
-        .post-card-content .post-meta { font-size: 0.9rem; color: var(--text-medium-gray); }
+        /* --- NEW: Similar Articles --- */
+        .related-posts { margin-top: 40px; }
+        .related-posts .section-title { font-size: 2rem; text-align: left; margin-bottom: 30px; }
+        .related-posts-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; }
+        .related-posts .post-card { background: var(--surface-sand); border-radius: 8px; box-shadow: var(--shadow-light); transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .related-posts .post-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-medium); }
+        .related-posts .post-card .post-image { height: 180px; width: 100%; object-fit: cover; border-bottom-left-radius: 0; border-bottom-right-radius: 0; }
+        .related-posts .post-card-content { padding: 20px; }
+        .related-posts .post-card-content .post-title { font-size: 1.2rem; margin-bottom: 0; line-height: 1.4; }
+        .related-posts .post-card-content .post-title a { color: var(--text-dark-brown); }
 
-        /* NEW: "No Results" Message Style */
-        .no-results {
-            text-align: center;
-            font-size: 1.2rem;
-            color: var(--text-medium-gray);
-            padding: 40px 0;
-            font-weight: 700;
+        /* --- NEW: Post Navigation --- */
+        .post-navigation {
+            display: flex; justify-content: space-between; gap: 30px;
+            margin-top: 60px; padding: 30px 0; border-top: 1px solid var(--border-light);
         }
+        .post-navigation a {
+            display: block; padding: 20px; background: var(--surface-sand);
+            border: 1px solid var(--border-light); border-radius: 8px; flex: 1;
+            box-shadow: var(--shadow-light);
+        }
+        .post-navigation a:hover { border-color: var(--accent-orange); }
+        .nav-label { font-size: 0.9rem; color: var(--text-medium-gray); display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+        .nav-title { font-size: 1.2rem; font-family: var(--font-heading); color: var(--text-dark-brown); line-height: 1.3; }
+        .post-navigation .next-post { text-align: right; }
+        .post-navigation .next-post .nav-label { justify-content: flex-end; }
 
+        /* Sidebar */
+        .sidebar { position: sticky; top: 120px; align-self: start; }
+        .sidebar-widget { background: var(--surface-sand); padding: 30px; border-radius: 8px; box-shadow: var(--shadow-light); margin-bottom: 40px; }
+        .widget-title { font-size: 1.5rem; margin-bottom: 20px; position: relative; padding-bottom: 10px; }
+        .widget-title::after { content: ''; position: absolute; bottom: 0; left: 0; width: 40px; height: 3px; background-color: var(--accent-orange); }
+        
         /* Footer */
         .site-footer { background: var(--dark-green); color: #ccc; padding: 60px 0 30px; }
         .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
@@ -128,25 +162,42 @@
         .footer-widget li { margin-bottom: 10px; }
         .footer-socials a { font-size: 1.4rem; margin-right: 15px; color: #bbb; }
         .footer-bottom { text-align: center; padding-top: 30px; border-top: 1px solid #4a5c48; font-size: 0.9rem; }
-        
+
         /* Responsive */
+        @media (max-width: 1200px) { .sticky-share-bar { display: none; } }
+        @media (max-width: 1024px) { .main-layout { grid-template-columns: 1fr; } .sidebar { grid-row: 2; position: static; } }
         @media (max-width: 768px) {
-            .main-nav ul { display: none; }
-            .page-header { padding-top: 120px; }
-            .page-header .header-title { font-size: 2.5rem; }
+            body { font-size: 16px; }
+            .article-hero h1 { font-size: 2.2rem; }
+            .article-content { padding: 30px 20px; }
+            .post-author-box { flex-direction: column; text-align: center; }
+            .related-posts-grid { grid-template-columns: 1fr; }
+            .post-navigation { flex-direction: column; }
             .footer-grid { grid-template-columns: 1fr; text-align: center; }
-            .category-grid { grid-template-columns: 1fr; }
+            .main-nav ul { display: none; }
         }
+        
+              
+.responsive-ad-container {
+  display: flex;
+  justify-content: center; /* বিজ্ঞাপনটিকে মাঝখানে আনে */
+  align-items: center;
+  width: 100%;             /* কন্টেইনারকে পুরো চওড়া করে */
+  max-width: 100%;         /* নিশ্চিত করে যেন স্ক্রিনের বাইরে না যায় */
+  overflow: hidden;        /* বিজ্ঞাপনের বাড়তি অংশ লুকিয়ে ফেলে */
+  height: 90px;            /* বিজ্ঞাপনের উচ্চতা অনুযায়ী উচ্চতা সেট করে */
+  margin: 10px 0;          /* উপরে ও নিচে কিছুটা জায়গা রাখে */
+}
     </style>
 </head>
 <body>
 
     <header class="site-header scrolled">
         <div class="container">
-            <h1 class="logo"><a href="#">The Nomad's Chronicle</a></h1>
+            <h1 class="logo"><a href="#">Choti Golpo</a></h1>
             <nav class="main-nav">
                 <ul>
-                    <li><a href="#">Home</a></li>
+                    <li><a href="index.html">Home</a></li>
                     <li><a href="#" class="active">Destinations</a></li>
                     <li><a href="#">Stories</a></li>
                 </ul>
@@ -154,74 +205,440 @@
         </div>
     </header>
 
+    <!-- Enhanced Floating Social Share Bar -->
+    <div class="sticky-share-bar">
+        <a href="#" aria-label="Share on Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" aria-label="Share on Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="#" aria-label="Share on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#" aria-label="Share on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        <a href="#" id="copy-link-btn" aria-label="Copy Link"><i class="fas fa-link"></i></a>
+    </div>
+
     <main>
-        <section class="page-header">
-            <div class="container">
-                <p class="header-subtitle">Browsing Category</p>
-                <h1 class="header-title">The Alps</h1>
-                <p class="story-count">5 stories found in this category</p>
+        <section class="article-hero">
+            <div class="post-category"><a href="/tags/incest">ইনসেস্ট</a></div>
+            <h1>
+বস্তিবাড়িতে মায়ের অধিকার আদায়ে ছেলের সাথে মিলন পর্ব ১</h1>
+            <div class="article-meta">
+                <span>By _ </span> •
+                <span>Published on July 15, 2025</span>
             </div>
         </section>
+        
+                        <!-- Responsive Ad Container Start -->
+<div class="responsive-ad-container">
+    <div class="earn" style="margin: 0;">
+        <!-- আপনার বিজ্ঞাপনের কোড এখানে শুরু -->
+        <script type="text/javascript">
+            atOptions = {
+                'key' : 'ac0cb06220b68c80d4d3201576019c46',
+                'format' : 'iframe',
+                'height' : 90,
+                'width' : 728,
+                'params' : {}
+            };
+        </script>
+        <script type="text/javascript" src="//www.highperformanceformat.com/ac0cb06220b68c80d4d3201576019c46/invoke.js"></script>
+        <!-- আপনার বিজ্ঞাপনের কোড এখানে শেষ -->
+    </div>
+</div>
 
-        <section class="search-section">
-            <div class="container">
-                <form class="search-form" action="#" method="get">
-                    <input type="search" id="search-input" name="query" placeholder="Search stories in The Alps...">
-                    <button type="submit"><i class="fas fa-search"></i> Search</button>
-                </form>
-            </div>
-        </section>
 
-        <div class="container category-grid-container">
-            <div class="category-grid" id="story-grid">
-                <article class="post-card">
-                    <a href="#"><img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800" alt="Majestic mountain valley" class="post-image"></a>
-                    <div class="post-card-content">
-                        <p class="post-category">The Alps</p>
-                        <h3 class="post-title"><a href="#">Finding Solitude in the Dolomites</a></h3>
-                        <p class="post-meta">Oct 28, 2023</p>
+
+        <div class="container main-layout">
+            <div class="article-column">
+                <article class="article-content">
+                    <div class="article-body">
+                        <p><b style="color: #ff4900; font-size: 45px;">এ</b>ইটা কি করসোস রে তুই, এত দামী বেলাউজটারে তুই নষ্ট কইরা দিলি। হারামজাদা, তোরে বানানির সময়ে বারেবারে কইলাম, মাপ ঠিকমত দে! আমার ট্যাকা ফেরত দে।<br>&#8211; আহা, চাচী আপনে শুধু শুধু ক্ষেপতাসেন ক্যালা! এহন তো এম্নে কইরাই হগ্গলে বেলাউজ পিন্দে। আমার কি দোষ কন!<br>&#8211; আবার কস আমার কি দোষ! আমার ওহন এইডি বেলাউজ পিন্দনের বয়স আছে? তোর মা খালারে দেখসোস এমুন বেলাউজ পিনতে? বেশরম কোনহানকার।<br>&#8211; আহারে চাচী, আম্নের মত জোয়ান মা খালা তো আমার নাই। আম্নে যে এতবড় পোলার মা হেইডা আপনারে দেখলে কেও কইবো! তাছাড়া, এইডা ঢাকা শহর। এইহানে বেডিরা এম্নেই বেলাউজ পড়ে।</p><p>৩৮ বছরের নারী সখিনা বানু ঝগড়া করছে জামা বানানোর দোকানে। বাংলাদেশের ঢাকায় ছেলের কাছে থাকতে এসেছে। টাঙ্গাইল-এর (ঢাকা পাশের একটি জেলা। ঢাকার বেশ কাছেই) গ্রাম থেকে আসা গেঁয়ো মহিলা সখিনা মাত্র মাস দুয়েক হল ঢাকায় এসেছে। শহরের চালচলন এখনো ঠিক বুঝে উঠতে পারেনি। তাই তো ঢাকার দোকানে ব্লাউজ বানাতে দিয়ে এই বিপত্তি।</p><p>দর্জি ব্যাটা সখিনা বানুর ব্লাউজ বানিয়েছে স্লিভলেস বড় গলার টাইট ফিটিং করে। বাংলার গ্রামের মহিলারা এখনো এমন হাল আমলের ব্লাউজ পড়ে অভ্যস্থ না, তাদের চাই কনুই হাতা ঢিলেঢালা ব্লাউজ। একমাত্র ছেলের দেয়া টাকায় কেনা ব্লাউজের এই হাল মানতে নারাজ সখিনা। তাও একটা দুটো না। চার চারটে ব্লাউজ একইভাবে বানিয়ে তাকে ক্ষেপিয়ে দিয়েছে এই দর্জি।</p><p>লেখক ~ চোদন ঠাকুর</p><p>&#8211; শহরের বেডিরা কি পড়ে তা দিয়া আমি কি করুম। তুই এহন আমার টেকা ফেরত দে। এই বেলাউজ আমি পড়ুম না।<br>&#8211; চাচী মাপ দেওনের টাইমে কইলাম কেম্নে বানামু, তহন তো কইলেন &#8220;বাবা যেম্নে বানানির বানাও&#8221;। এহন এই কথা কইলে হইবো।<br>&#8211; তহন তো লগে পোলা আছিলো। আর আমি জানি কি যে তুই এই আকামডা করবি!<br>&#8211; তহন যখন কিসু কন নাই, এহন আর কইয়া লাভ নাই। লইলে লন, নাইলে ফালায় দিয়া যান গা।<br>&#8211; তোর এত বড় সাহস! আজকেই পোলারে কমু তোর খবর করতে। বদমাইশ দর্জি!<br>&#8211; যান কন, যান গা। আপনার পোলারে আমি পুছি না। মারামারি হইয়া যাইবো যান। কি করবেন করেন গা।</p><p>রাগে গজগজ করতে করতে ব্লাউজ নিয়ে বের হয়ে আসে ৩৮ বছরের নারী সখিনা বানু। ফেলে আসার চেয়ে সাথে নিয়ে নিলো ব্লাউজগুলা। ছেলের বাসার আশেপাশে কাওরে দিয়ে দেয়া যাবে। ব্লাউজ না থাকা মানে শাড়িগুলাও আর পড়া হবে না। ধুর। এত্তগুলা টাকা নষ্ট।</p>
+                        
+                                  <!-- Responsive Ad Container Start -->
+<div class="responsive-ad-container">
+    <div class="earn" style="margin: 0;">
+<script type="text/javascript"> 	
+    atOptions = { 		
+    'key' : '8e3a2731e8d3e94c8a33347b30eb461b', 		
+    'format' : 'iframe', 		
+    'height' : 60, 		
+    'width' : 468, 		
+    'params' : {} 	
+    }; 
+    </script> 
+    
+    <script type="text/javascript" src="//www.highperformanceformat.com/8e3a2731e8d3e94c8a33347b30eb461b/invoke.js"></script>
+ </div>
+</div>
+
+                        <p>ঢাকার প্রানকেন্দ্র গুলশান ও মহাখালীর মাঝে থাকা ঢাকার অন্যতম বড় বস্তি &#8211; কড়াইল বস্তিতে থাকা ছেলের কাছে এসে উঠেছে মা &#8211; সখিনা আক্তার। সখিনা বানু বলেই গ্রামে চিনতো। ছেলে ঢাকায় সিএনজি (তিন চাকার বাহন। সিএনজি গ্যাসে চলে। অটোরিকশা বা বেবীট্যাক্সি আসলে। কোন এক বিচিত্র কারনে গ্যাসের নামে একে সিএনজি বলে সবাই চিনে।) চালায়। নিম্ন আয়ের মানুষ তার ছেলে। তাই কড়াইল বস্তির ১৫ হাজার ঝুপড়ি ঘরের একটাতে ২ লাখ ৫০ হাজার বস্তিবাসীদের সাথে থাকা।</p><p></p><p>সখিনার একমাত্র ছেলে রাজিবুর রহমান, ডাকনাম &#8211; রাজিব। বয়স ২২ বছর। বিয়ে করেনি এখনো। পড়ালেখাও করেনি ছোটবেলায়। টাঙ্গাইলের গ্রামে থাকাকালীন স্কুলে ক্লাস সেভেনে পড়ার সময় স্কুল থেকে বের করে দেয়। বাবার সাথে ঝগড়া করে গ্রাম-পরিবার ছেড়ে পালিয়ে শহরে আসে। সেটা আজ থেকে প্রায় ৬ বছর আগের কথা। রাজিবের বয়স তখন ১৬ বছর মাত্র। পড়ালেখায় সবসময়ই অমনোযোগী রাজিব তাই ১৬ বছরের ক্লাস সেভেনের গন্ডি পেরোতে পারে নাই। শহরে এসে তাই রিক্সা-সিএনজি চালানো ছাড়া আর উপায়ই বা কী।</p><p>(কলকাতার মত ঢাকাতেও রিক্সা চলে। তবে কলকাতার মত এত কম না। ঢাকার সবখানেই রিক্সা চলাচল করে। ঢাকাকে রিক্সার শহরও বলেন কেও কেও।)</p><p>যাক সেসব কথা পরে হবে, আপাতত দেখি সখিনা বানু কি করছে। দর্জিবাড়ি কড়াইল বস্তির তাদের মা ছেলের ঘরের কাছেই। আধা কিলোমিটার দূরত্ব হবে। হেঁটে ঘরে আসে সখিনা। দুপুর বেলা। ছেলে ঘরে নাই। সকালে ৮টা/৯টা নাগাদ সিএনজি নিয়ে বের হয়। সারাদিন ভাড়ায় চালায় রাত ৯টা/১০টা নাগাদ ফেরে।</p><p>&#8211; (সখিনা) ও আপা, আপা গো। এই দেখছ কি কামডা! দর্জির বেটা আমার দামি বেলাউজগুলারে কী করছে। টেকাও ফেরত দিল না!<br>&#8211; আহারে সখিনা, কাইলকা থেইকা তুই এলাকা মাথায় তুলছোত রে এই লইয়া। তোরে কইছি না &#8211; এইডা ঢাকা শহর। এইহানে তোর গেরাইমা বেলাউজ পাইবিনারে।<br>&#8211; তোমার যেমুন দর্জির লাহান কথা, আপা! কইতাসি যে এমুন টাইট, শরীলে চাইপা থাহা, গলা-পিঠ বের করইন্না বেলাউজ পড়ি না। তারপরও দিব ক্যান? গুস্টি মারি ঢাকা শহরের। আইজকা পোলায় রাইতে আহুক। দরজির নামে বিচার দিমু।<br>&#8211; এইডা ভুলেও করিছ নারে সখিনা। তোর পোলায় এমনিতেই মদখোর মাতাল হইয়া আহে। তুই চেতায়া দিলে জুয়ান পোলাডা লাঠি লইয়া দরজিরে পিডাইবো। দরজিও মাস্তান দিয়া গ্যাঞ্জাম করব। থানা পুলিশ হইবো। তোগোর থেইকা টেকাও খাইব, আবার তোর পুলারে থানায় লইয়া দিব মাইর। বুঝিস?<br>&#8211; তোমার যা কথা না। আমার পুলারে পিডাইবো ক্যান! হে পেরিতাবাদ করব না! ফাইজলামি নাহি!<br>&#8211; (মুচকি হাসির শব্দ) আহারে বেডিডা। তুই বুঝতাসস না, এইডা তুর টাঙ্গাইলের গেরাম নারে ছেমড়ি। ঢাকায় গরীবের কেও নাইরে। গরীবরে মারতে পুলিশের কিস্সু হয় না। তোর লাইগা তোর পোলায় মাইর খায়া জেলে যাইবো। গেরামে অশান্তি লইয়া ঢাকায় আইলি। পোলারে জেলে হান্দায়া এইহানেও অশান্তি করবি? তোর কি মাথায় বুদ্ধি কিছুই নাইরে, হাবলির ঝি?!</p>          <!-- Responsive Ad Container Start -->
+<div class="responsive-ad-container">
+    <div class="earn" style="margin: 0;">
+<script type="text/javascript"> 	
+    atOptions = { 		
+    'key' : '8e3a2731e8d3e94c8a33347b30eb461b', 		
+    'format' : 'iframe', 		
+    'height' : 60, 		
+    'width' : 468, 		
+    'params' : {} 	
+    }; 
+    </script> 
+    
+    <script type="text/javascript" src="//www.highperformanceformat.com/8e3a2731e8d3e94c8a33347b30eb461b/invoke.js"></script>
+ </div>
+</div>
+                        
+                        <p>সখিনার সাথে কথা বলতে থাকা এই ৬২ বছরের বিগতযৌবনা মহিলা বস্তিতে সখিনা-রাজিবের পাশের ঘরের বাসিন্দা। নাম &#8211; আকলিমা খাতুন। রাজিব আকলিমা খালা বলে ডাকে। সখিনার কাছে আকলিমা আপা। আকলিমা খাতুন তার বৃদ্ধ ৮৫ বছরের অসুস্থ স্বামীকে নিয়ে রাজিবদের ঠিক পাশের ঘরেই থাকে। স্বামী খুবই বৃদ্ধ হওয়ায় চোখেও দেখে না, কানেও শুনে না। কোনরকমে লাঠিতে ভর দিয়ে হাঁটাচলা করে। সখিনার মতই আকলিমার একমাত্র ছেলে আনিস সংসার খরচ জোগায়। রাজিবের বস্তিতে ওঠার আগে থেকে আকলিমা এখানে থাকে।</p><p>আকলিমার ছেলে আনিস অবশ্য বয়সে রাজিবের চেয়ে বেশ বড়, ৪৪ বছর বয়স। কড়াইল বস্তি থেতে দূরে, ঢাকার আরেক দিকে রামপুরা-তে একটা মুদি দোকান চালায়। আনিসের বউ-বাচ্চা সবই আছে। তিনটা ছোট ৪ থেকে ১২ বছরের বাচ্চা। তবে, আনিসের বৌটা ভালো না। ঝগড়াটে বৌমা পেয়েছে আকলিমা। বছর দশেক আগে আনিসের সাথে ঝগড়া করে বৃদ্ধ বাবা-মাকে ঘরছাড়া করে। আনিসের দোকানটা ওর বৌয়ের বাপের দেয়া বলে আনিসের আসলে মেনে নেয়া ছাড়া কিছু করকর ছিল না। তাই ঘরছাড়া বাপ মাকে এই কড়াইল বস্তিতে এনে তুলেছে। আনিস রামপুরায় মোটামুটি কম ভাড়ার বাসায় থাকলে আকলিমা মা আর বাবাকে বস্তিতে রাখা ছাড়া উপায় নাই তার। বৌয়ের নির্দেশ &#8211; বাবা মাকে মাসে ১০ হাজার টাকার বেশি দেয়া যাবে না। তাই, কড়াইলের বস্তিতে আনা ছাড়া উপায় কী। আকলিমাও ছেলের সুখের জন্য নিজের দুর্ভাগ্য মেনে নিয়েছে।</p><p>(ছেলে বৌমার ঘর ছেড়ে বুড়া স্বামীকে নিয়ে আকলিমার অবশ্য ভালোই হয়েছে একদিক দিয়ে। সেটা পরে জায়গামত বলছি। আপতত আকলিমা সখিনার বস্তির আলাপে ফিরে যাই।)</p><p>&#8211; (সখিনা) হুমম আপায় তুমি যা ভালা মনে করো, আমি আর সংসারে অশান্তি চাইনারে, আপা। বাইচা থাকতে সোয়ামি আমার ঘর থেইকা লাত্থি মাইরা বাইর কইরা দিল। ভাইরাও জমিজমার লাইগা বোইনরে খেদায়া দিল। এই দুনিয়ায় পোলা ছাড়া আর যাওনের জায়গা কই আমার?</p><p>বলেই সখিনা ডুকরে কাঁদা শুরু করলো। বেশ দুখী নারী এই সখিনা। তার দুখের কথা একটু পরেই শুনছি।</p>
+                        
+                                  <!-- Responsive Ad Container Start -->
+<div class="responsive-ad-container">
+    <div class="earn" style="margin: 0;">
+<script type="text/javascript"> 	
+    atOptions = { 		
+    'key' : '8e3a2731e8d3e94c8a33347b30eb461b', 		
+    'format' : 'iframe', 		
+    'height' : 60, 		
+    'width' : 468, 		
+    'params' : {} 	
+    }; 
+    </script> 
+    
+    <script type="text/javascript" src="//www.highperformanceformat.com/8e3a2731e8d3e94c8a33347b30eb461b/invoke.js"></script>
+ </div>
+</div>
+
+<p>&#8211; (আকলিমা) কান্দিছ নারে বইনডি, কান্দিছ না। বেডিগো কান্দন কেও শুনবো না। তুই গেরাইম্মা মাইয়া, বোকাচুনদি বেডি, নাইলে নিজের ২৫ বছর সংসার করনের বৌরে কোন হালার ভাতার খেদায়া দেয়। তোর আর কাইন্দা কি হইবো রে! ওহন মাতাডা ঠান্ডা কইরা এই ঢাকা শহরে বুদ্ধি দিয়া চলতে হইবো।<br>&#8211; (সখিনা চোখ মুছে) বুজান, তুমি আমারে বুদ্ধি শিখাও বুজান। কি করমু কও আমারে। তুমার কথা ছাড়া আমি আর চলুম না।<br>&#8211; (হাসতে হাসতে) ইশরে শালীর বইনডা আমার, তোরে শিখামু। কিন্তু কইলাম এইডি বাইরের কাওরে কইবি না। তোর আমার মইদ্দে রাখবি৷ তোর পোলারেও কবি না। আমারে যখন বইন কইছস, তোর বাকি জীবনডা গরনের কাম আমার। তুই খালি আমার বুদ্ধিমত চলিস।<br>&#8211; হ বুজান তাই চলুম। কিন্তুক আমারে কও, তুমি এত বুদ্ধি লইয়া বৌমার মাইর খায়া একমাত্র পুলার ঘর থুয়া বুইড়া ভাতার লইয়া বস্তিতে উডলা। তাও এই বয়সে।<br>&#8211; (কেমন রহস্যময় হাসি দিচ্ছে আকলিমা) কাহিনি আছে রে বইন কাহিনি আছে। তোরে আগে ইশমাট চালু বানায়া লই। পরে বুঝায় কমু নে। বৌমা শালীর বেডি শালীর লগে আমার কাইজা চললেও হেরে বানানি আমার দুই মিনিটের কাম। তয়, তাতে ঝামেলা আসিল। তাই সাইদা সাইদা নিজেই আয়া পড়ছি এইহানে। সুবিধাই হইছে তাতে।</p><p>সখিনা কিছুই বুঝল না। বৃদ্ধ ৬২ বছরের আকলিমার ৮৫ বছরের স্বামীরে নিয়া বস্তি এসে কী লাভ। তবে, সেসব বাদে আপাতত অন্য বিষয়ে আলাপ পাড়লো।</p><p>&#8211; আইচ্ছা আপা, আমারে কও দেহি, আমার রাজিব কি পুরাই মালচি বইখা গেছে? গেরামে থাকতেও পড়ালেহা না কইরা নষ্ট হইছে। শহরে কী আরো নস্ট হইছে?<br>&#8211; সে আর তোরে কি কইতাছি, তোরে এইহানে আওনের পর হেই দুই মাস ধইরা কইতাছি &#8211; তোর পুলাডা পুরা নস্ট, বরবাদ হইয়া আছে। হেরে তো গত ৬ বছর ধইরা দেখতাছি, গত দুই মাসে তুই-ও দেখছস &#8211; তোর পোলায় রোজ দিন, হপ্তায় ৭ দিনই ওই বাংলা মাল খায়। সিএনজি ৮টায় গ্যারেজে হান্দায়া, ওই কড়াইলের কমিশনারের মালখানায় তাড়ি, বাংলা গিল্লা আহে। জুয়ান পুলা, এম্নে কইরা শরীলডার গুয়া মাইরা মরনের ইন্তেজাম করতাছে।</p><p>(বস্তির লোকেরা সবাই একটু খিস্তি করেই কথা বলে। সখিনাও গায়ের ঝগড়াটে মহিলার মত গালি মারতে জানে। তাই, গালি দিয়ে আলাপ এই সমাজে নিত্যকার ব্যাপার।)</p><p>&#8211; আকলিমা বুজি, তওবা কাটো। কি কইলা, আমার পুলায় মরব?! হেরে পেটে ধরছি আমি, আমি যখন আইছি, ওর মাল গিলন ঝাড়ু দিয়া বাইড়ায়া সিধা করুম। সখিনারে তুমি চিননা বুজান, তোমার এই বইন গেরামের সেরা ঝগড়াইট্টা আসিল।<br>&#8211; তুই আমার ছামার বালডা করবি (মুখ ভেংচে বলে আকলিমা।) ১৬ বছরে পুলারে বাইড়ায়া সিধা করতে পারোস নাই, উল্টা তোগোরে ছাইড়া শহরে আইসে &#8211; আর ওহন এই টেকা কামাইন্না শিখা তোর কথায় বালডা করব। তোরে উলডা লাত্থি মাইরা খেদাইবো। তোর না আছে সোয়ামি, না আছে ভাইরা, না থাকব পুলা &#8211; তুই তহন রাস্তায় ভিক্ষা করিস নাইলে খানকিপাড়ায় গিয়া দেহ বেইচা মাগীগিরি করিস।<br>&#8211; (হতাশ নিঃশ্বাস ছেড়ে) তাইলে কি করুম, আপা। পোলারে হারাইতে চাই না। আবার হের নেশা করাও দেখবার চাই না। করুমডা কি আমি?<br>&#8211; (পান চিবাইতে চিবাইতে) হে বুদ্ধি আমি দিমু। আপাতত তুই পুলার কোন কিছু লইয়া কিছু কইস না। কিসুদিন যাইতে দে। চুপচাপ থাক। মায়ের হইছস, মায়ের লাহান পুলার সংসার গুছা। বাকিডা দেখতাছি আমি।</p><p>&#8211; (একটু থেমে) আর হোন সখিনা। বেলাউজগুলা না পিনলেও ফালায় দিছ না। রাইখা দে। পরে কামে লাগবো। দরজি একডা কতা ঠিকই কইছে &#8211; তোর মত ৩৮ বছরের ডবকা বেচ্ছানি এইডি শরীল দেহানি বেলাউজ পিনবো নাতো কি আমি পিন্দুম?! ওহন যা তোর ঘরে যা। আমার পুলায় আইবো। পরে আহিস তুই।</p>
+
+          <!-- Responsive Ad Container Start -->
+<div class="responsive-ad-container">
+    <div class="earn" style="margin: 0;">
+<script type="text/javascript"> 	
+    atOptions = { 		
+    'key' : '8e3a2731e8d3e94c8a33347b30eb461b', 		
+    'format' : 'iframe', 		
+    'height' : 60, 		
+    'width' : 468, 		
+    'params' : {} 	
+    }; 
+    </script> 
+    
+    <script type="text/javascript" src="//www.highperformanceformat.com/8e3a2731e8d3e94c8a33347b30eb461b/invoke.js"></script>
+ </div>
+</div>
+
+<p>আকলিমাকে বিদায় দিয়ে সখিনা পাশের ঘরে তার বস্তিরুমে আসে। এইবার বলে নেই, ঢাকার বস্তিগুলা অনেকটা কলকাতার বস্তির মতই। ঘিঞ্জি জায়গায় গায়ে গা লেগে থাকা সারিসারি ঘর। কোনটা দু রকমের (সামান্য বড়), কোনটা একরুমের। ঘরের চারপাশে পাতলা ইটের গাঁথুনি। উপরে টিনের চাল বাঁধা। দুইরুমের ঘরগুলার মাঝখানে বাঁশের পার্টিশন দেয়া। কোনমতে একটা বড় ঘর দুইটা ভাগ করে দুই রুম বানানো। সখিনা রাজিব এমন একটা দুইরুমের ঘরে থাকে। বাঁশের পার্টিশনের এপাশের ছোট ঘরে সখিনা। ওইপাশে একটু বড় ঘরে রাজিব। রাজিবের ঘরের পাশের একরুমের ঘরে আকলিমা তার স্বামী নিয়ে থাকে। সখিনার পাশে আরেকটা একরুমের ঘরে এক কমবয়সী গার্মেন্টস ফ্যাক্টরি কর্মী মেয়ে থাকে। ঘরের সামনে পেছনে জানালা সরু ৬ ফুটের খোলা পায়ে হাটা পথ। ওপাশে দুদিকেই আবার সারিসারি বস্তিঘর। ঘরের সামনে পেছনে একটা করে জানালা। পেছনের জানালাটা পড়েছে রাজিবের পার্টিশনে। আর সামনের জানালাটা সখিনার পার্টিশনে।</p><p>বস্তির রান্নাঘর, বাথরুম সব ঘর থেকে দূরে একটা কমন জায়গায়। প্রতি ৩০ ঘর মানুষের জন্য ৩টা বাথরুম আর ২টা ২ বার্নার চুলা। বাথরুম, রান্নাঘর দুজায়গাতেই সক্কাল সক্কাল লাইন দিতে হয়। মা আসের আগে রাজিব এসব রান্নার ঝামেলায় যেত না। তিনবেলা হোটেল খেত। সখিনা মা অবশ্য ছেলেকে হোটেলে খাওয়াতে নারাজ। দুপুরের খাবারটা রাজিব সিএনজি চালানোর ফাকে কোথাও খেলেও সকালে-রাতের ভাত তরকারি সখিনা রান্না করে। সকালে রাজিব ৮/৯টায় বেরোনোর পর সখিনা চুলার কাছে গিয়ে লাইন ধরে একবারে রাতের ও পরদিন সকালের রান্না করে নেয়। দুপুরে রান্না শেষে ঘরে তরকারি রেখে ছেলের নিজের কাপড়চোপড় নিয়ে বাথরুমে হিয়ে নিজে গোসল সেরে কাপড় ধুয়ে আসে। ঘরের সামনের ৬ ফুট রাস্তায় ঘরের সাথে লাগানো দড়িতে কাপড় শুকোতে দিয়ে ঘরে ফিরে খেয়ে ঘুম দেয়।</p><p>সন্ধ্যায় উঠে পাশের আকলিমার ঘরে যায়। আকলিমার ঘরে ছোট একটা রঙিন টিভি আছে। আকলিমার ছেলে আনিস ডিশের লাইনও দিছে। সন্ধ্যা থেকে দুই বুড়ি-যুবতী মা মিলে বাংলা নাটক সিনেমা এসব দেখে। রাত ৯/১০ টায় রাজিব ফিরলে সখিনা ঘরে এসে ছেলেকে খেতে দিয়ে নিজেও খেয়ে নেয়। মাতাল হয়ে থাকা সাধারণত খেয়েই ঘুম দেয়। সখিনা আরো কিছুটা সময় জেগে, ঘর গুছায়ে শোয়। এই মা ছেলের বস্তির রুটিন।</p><p>আকলিমার বাসা থেকে এসে দরজির বেলাউজগুলা ড্রয়ারের ভিতর রেখে দেয়। এতশুন্দর চারটা ব্লাউজপিসসহ শাড়ি কিনে দিসিলো ছেলে, সব গুলো গেলো। ম্যাচিং ব্লাউজ ছাড়া রঙিন শাড়িগুলাও পড়া হবে না। দুরছাই।</p><p>ড্রয়ার আটকে দুপুরের গোসল সারতে বাথরুমে রওনা দেয়। যাবার পথে দেখে, আকলিমার ছেলে আনিস এসে ঢুকছে। বয়সে সখিনার চেয়ে ৬ বছরের বড় হলেও সখিনাকে খালা বলে ডাকে। রাজিবকে বন্ধুর মত নাম ধরে ডাকে৷ দেখা হলে সালাম দেয়। ব্যবহারে বেশ। পড়ালেখাও করেছে নাকি, ডিগ্রি পাশ করেছে মহাখালীর তিতুমীর কলেজ থেকে। বৌয়ের বাপের বাড়ির পাওয়া বড় দোকান সামলায়। সপ্তাহে একবার আসে৷ দুপুরে এসে সন্ধ্যার পর যায়। বাবা মার খোঁজ রাখা ভালো মানুষ। &#8220;আহারে, আমার পোলাডা এমুন ভালা হইত&#8221; মনে মনে ভাবে সখিনা।</p><p>আনিসের সালাম শুনে তাকায়। ওয়ালাইকুম সালাম জানায়। আকলিমা ছেলের জন্য নতুন শাড়ি পড়েছে। লাল ডুরে পাড়ের শাড়ি, ভেতরে লাল কালো প্রিন্ট। বস্তির নিম্নআয়ের মহিলার মত শাড়ি। কাজের বুয়াদের মত সখিনা, আকলিমাসহ বস্তির সবাই আঁচল ভাঁজ করে শাড়ি পড়ে না। পেটিকোটে গুঁজে একটানে পড়ে। আকলিমাও সেভাবে পড়েছে। দরজা খুলে ছেলেকে ভেতরে নিলো।</p><p>৬২ বছর বয়সের আকলিমা খাতুন কালো বর্ণের বস্তির পৌঢ়া খালাম্মার মতই দেখতে। ৫ ফুট ২ ইঞ্চি হবে উচ্চতা। একটু মেদবহুল মোটাসোটা দেহ। ৭২ কেজির মত হবে। পেটে মেদ আছে। বয়সের ভারে, মাংসের দলায় ভারী দুধ, পাছাগুলা ঝুলে আছে। বস্তির মহিলারা ব্রা-পেন্টি না পড়ায় সাইজ ঠিক থাকে না। ৪০ সাইজের মত দুধ আর ৪০ এর মতই পাছা। কোমর হয়তো ৩৮।</p>
+
+          <!-- Responsive Ad Container Start -->
+<div class="responsive-ad-container">
+    <div class="earn" style="margin: 0;">
+<script type="text/javascript"> 	
+    atOptions = { 		
+    'key' : '8e3a2731e8d3e94c8a33347b30eb461b', 		
+    'format' : 'iframe', 		
+    'height' : 60, 		
+    'width' : 468, 		
+    'params' : {} 	
+    }; 
+    </script> 
+    
+    <script type="text/javascript" src="//www.highperformanceformat.com/8e3a2731e8d3e94c8a33347b30eb461b/invoke.js"></script>
+ </div>
+</div>
+<p>অন্যদিকে ছেলে আনিস মধ্যবয়সী গোঁফওয়ালা, টেকো দোকানী। ৫ ফুট ৮/৯ ইঞ্চি হবে উচ্চতা, ৮৪ কেজির মত ভুড়িওয়ালা দেহ। লুঙ্গি, ফতুয়া পড়ে এসেছে। রোদেপুড়া কালচে বরণ। আকলিমার মতই পান খায় খুব। সখিনা ছেলে আসলেই পান নিয়ে আসে একগাদা। ওইটাই আকলিমা সারা সপ্তা ধরে খায়।</p><p>সখিনাকে পাশ দিয়ে যেতে দেখে আকলিমা হেসে বলে &#8211; পোলায় আইলো, বইন। গফ সফ করমু। তবে, তুই সন্ধ্যায় আইস। তোর সোয়ামি-ভাইদের জমিতে তোর ন্যায্য হিসসা কেমনে আদায় করবি হেইটা লয়া কথা আছে। আগেই কইয়া রাখসিলাম হেরে তোর দুখের গল্প। দেহি, আজকে কি কয়, আমার পোলায় তোরে বুদ্ধি দিবোনে।<br>&#8211; আইচ্ছা আপা। তুমি আমারে ডাইকা দিও ঘুম থেইকা। বাইরের জানলা তো আমার রুমের লগে। জানলার বাইরে খাড়ায়া ডাকলেই হইব। আমার ঘুম পাতলা।<br>&#8211; আইচ্ছা ডাকুম নে। তুই যা কলতলার কাম সার। ঝগড়া করিস না আবার পরশুর মত। আইজকা কিন্তুক তোর ঝগড়া থামাইতে আইতে পারুম না। পোলার লগে গফ করুম।<br>&#8211; আইচ্ছা কাইজ্জা করুম না। লাইন ধইরা দাড়ায়া সিরিয়াল দিমু। তুমি ঘরে যাও।</p><p>আকলিমা হেসে দরজা আটকে দেয়। বাইরের জানলা জানালাও আটকে দিয়ে ভেতরে পর্দাও টেনে দিল বোধহয়। পেছনের জানলাও আটকাল। সখিনা বুঝে না &#8211; এই বস্তির ঘুপচি করে দুপুরের গরমে ছেলে আসলেই দরজা জানালা আটকে দেয়ার কি মানে?! ঘিঞ্জি ঘরে ওই দুটা জানলার পর্দার ফাক দিয়ে যা একটু বাতাস খেলে।</p>
+
+<b>পরের পর্ব খুব শিগগিরই আসছে....</b>
+                        <h2 style="text-align: center;">Shear</h2>
+                            <!-- You can customize the URL and title to share via data attributes -->
+    <div class="social-share-widget" 
+         data-url="https://example.com/great-article" 
+         data-title="Check out this Great Article!">
+        
+        <!-- Twitter Share Button -->
+        <a href="#" class="share-btn twitter" data-social="twitter" aria-label="Share on Twitter" title="Share on Twitter">
+            <svg viewBox="0 0 24 24"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.223.085 4.93 4.93 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
+            <span>Twitter</span>
+        </a>
+
+        <!-- Facebook Share Button -->
+        <a href="#" class="share-btn facebook" data-social="facebook" aria-label="Share on Facebook" title="Share on Facebook">
+            <svg viewBox="0 0 24 24"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-1.5c-1 0-1.5.5-1.5 1.5V12h3l-.5 3h-2.5v6.8c4.56-.93 8-4.96 8-9.8z"/></svg>
+            <span>Facebook</span>
+        </a>
+
+        <!-- LinkedIn Share Button -->
+        <a href="#" class="share-btn linkedin" data-social="linkedin" aria-label="Share on LinkedIn" title="Share on LinkedIn">
+            <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/></svg>
+            <span>LinkedIn</span>
+        </a>
+
+        <!-- Copy Link Button -->
+        <button class="share-btn copy-link" data-action="copy" aria-label="Copy link to clipboard" title="Copy link to clipboard">
+            <svg viewBox="0 0 24 24"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+            <span class="copy-text">Copy Link</span>
+        </button>
+
+    </div>
+
                     </div>
-                </article>
-                <article class="post-card">
-                    <a href="#"><img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=800" alt="Canoe on a calm lake" class="post-image"></a>
-                    <div class="post-card-content">
-                        <p class="post-category">The Alps</p>
-                        <h3 class="post-title"><a href="#">A Quiet Morning on Lake Bled, Slovenia</a></h3>
-                        <p class="post-meta">Oct 08, 2023</p>
+                    <!-- NEW: Post Tags -->
+                   
+                   
+                    <div class="article-tags-container">
+                        <h4> <i class="fa-regular fa-folder"></i> Cetagory :</h4>
+                        <div class="tags-list">
+                            <a href="#">ইন্সেস্ট</a>
+                            <a href="#">অজাচার</a>
+                           
+                        </div>
                     </div>
-                </article>
-                <article class="post-card">
-                    <a href="#"><img src="https://images.unsplash.com/photo-1528181304800-259b08848526?w=800" alt="Icelandic waterfall" class="post-image"></a>
-                    <div class="post-card-content">
-                        <p class="post-category">The Alps</p>
-                        <h3 class="post-title"><a href="#">Hiking Switzerland's Glacial Trails</a></h3>
-                        <p class="post-meta">Sep 21, 2023</p>
+                    
+                     <div class="article-tags-container">
+                        <h4> <i class="fa-solid fa-hashtag"></i> Tags:</h4>
+                        <div class="tags-list">
+                            <a href="#">মা ছেলে</a>
+                            <a href="#">হর্নি</a>
+                            <a href="#">হট</a>
+                            <a href="#">ইরোটিক</a>
+                        </div>
                     </div>
-                </article>
-                 <article class="post-card">
-                    <a href="#"><img src="https://images.unsplash.com/photo-1533929736458-ca588d08c8be?w=800" alt="Chamonix valley" class="post-image"></a>
-                    <div class="post-card-content">
-                        <p class="post-category">The Alps</p>
-                        <h3 class="post-title"><a href="#">Chamonix: A Summer Adventure Guide</a></h3>
-                        <p class="post-meta">Aug 15, 2023</p>
-                    </div>
-                </article>
-                 <article class="post-card">
-                    <a href="#"><img src="https://images.unsplash.com/photo-1590141228518-97143c79a409?w=800" alt="Hallstatt, Austria" class="post-image"></a>
-                    <div class="post-card-content">
-                        <p class="post-category">The Alps</p>
-                        <h3 class="post-title"><a href="#">The Fairytale Village of Hallstatt</a></h3>
-                        <p class="post-meta">Jul 30, 2023</p>
-                    </div>
-                </article>
-            </div>
-            <!-- NEW: "No Results" Message Element -->
-            <p id="no-results-message" class="no-results" style="display: none;">
-                Sorry, no stories found matching your search.
-            </p>
+                        <style>
+        /* --- Enhanced Social Share Widget --- */
+        .social-share-widget {
+            display: flex;
+            flex-wrap: wrap; /* Allows buttons to wrap on smaller screens */
+            justify-content: center;
+            gap: 12px;
+            padding: 20px;
+            background-color: #ff49002a;
+            border-radius: 12px;
+            box-shadow: 0 5px 25px rgba(0, 30, 80, 0.1);
+            
+            width: 90%;
+            width: fit-content; 
+            align-item: center;
+            margin: 0 auto;
+            
+            /* Adjusts to content width */
+        }
+
+        .social-share-widget .share-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px; /* Space between icon and text */
+            padding: 10px 18px;
+            border-radius: 8px;
+            border: none;
+            text-decoration: none;
+            color: #fff;
+            font-weight: 600;
+            font-size: 15px;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        /* Icon Styling */
+        .social-share-widget .share-btn svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+        }
+        
+        /* Hover and Focus states for accessibility */
+        .social-share-widget .share-btn:hover,
+        .social-share-widget .share-btn:focus-visible {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            outline: none; /* Custom focus-visible styles are better */
+        }
+        
+        .social-share-widget .share-btn:active {
+            transform: translateY(-1px);
+        }
+
+        /* Platform-specific styles */
+        .social-share-widget .share-btn.twitter { background-color: #1DA1F2; }
+        .social-share-widget .share-btn.facebook { background-color: #1877F2; }
+        .social-share-widget .share-btn.linkedin { background-color: #0A66C2; }
+        
+        /* Copy Link button style */
+        .social-share-widget .share-btn.copy-link {
+            background-color: #5865F2; /* A distinct, modern color */
+        }
+        
+        /* Style for feedback after copying */
+        .social-share-widget .share-btn.copy-link.copied {
+            background-color: #2ECC71; /* Green to indicate success */
+            cursor: default;
+        }
+
+    </style>
+
+
+
+    <script>
+        // Self-invoking function to prevent polluting the global namespace
+        (function() {
+            const widget = document.querySelector('.social-share-widget');
+            if (!widget) return;
+
+            // Get URL and Title from data attributes, or fall back to the current page's
+            const shareUrl = widget.dataset.url || window.location.href;
+            const shareTitle = widget.dataset.title || document.title;
+            
+            // Use event delegation for better performance
+            widget.addEventListener('click', function(event) {
+                // Find the button that was clicked inside the widget
+                const clickedButton = event.target.closest('.share-btn');
+                if (!clickedButton) return;
+                
+                // Prevent default link behavior
+                event.preventDefault();
+
+                const socialPlatform = clickedButton.dataset.social;
+                const action = clickedButton.dataset.action;
+
+                if (socialPlatform) {
+                    // It's a social sharing button
+                    let url = '';
+                    const encodedUrl = encodeURIComponent(shareUrl);
+                    const encodedTitle = encodeURIComponent(shareTitle);
+
+                    switch (socialPlatform) {
+                        case 'twitter':
+                            url = `https://twitter.com/intent/tweet?url=${encodedUrl}&text=${encodedTitle}`;
+                            break;
+                        case 'facebook':
+                            url = `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`;
+                            break;
+                        case 'linkedin':
+                            url = `https://www.linkedin.com/shareArticle?mini=true&url=${encodedUrl}&title=${encodedTitle}`;
+                            break;
+                    }
+
+                    if (url) {
+                        window.open(url, '_blank', 'width=600,height=400,resizable=1');
+                    }
+                } else if (action === 'copy') {
+                    // It's the copy link button
+                    navigator.clipboard.writeText(shareUrl).then(() => {
+                        // Provide visual feedback
+                        const copyText = clickedButton.querySelector('.copy-text');
+                        if(copyText) copyText.textContent = 'Copied!';
+                        clickedButton.classList.add('copied');
+
+                        // Revert back after a short delay
+                        setTimeout(() => {
+                            if(copyText) copyText.textContent = 'Copy Link';
+                            clickedButton.classList.remove('copied');
+                        }, 2000);
+                    }).catch(err => {
+                        console.error('Failed to copy: ', err);
+                        // You could add fallback logic here for older browsers
+                    });
+                }
+            });
+        })();
+    </script>
+
+                    
+        <!-- NEW: Next/Previous Post Navigation -->
+        <div class="container">
+            <nav class="post-navigation">
+                <a href="#" class="prev-post">
+                    <div class="nav-label"><i class="fas fa-arrow-left"></i> Previous Post</div>
+                    <h4 class="nav-title">A Quiet Morning on Lake Bled</h4>
+                </a>
+                <a href="#" class="next-post">
+                    <div class="nav-label">Next Post <i class="fas fa-arrow-right"></i></div>
+                    <h4 class="nav-title">The Hidden Colors of Lisbon's Alleys</h4>
+                </a>
+            </nav>
         </div>
-    </main>
+        <!-- Responsive Ad Container Start -->
+<div class="responsive-ad-container">
+    <div class="earn" style="margin: 0;">
+<script type="text/javascript"> 	
+    atOptions = { 		
+    'key' : '8e3a2731e8d3e94c8a33347b30eb461b', 		
+    'format' : 'iframe', 		
+    'height' : 60, 		
+    'width' : 468, 		
+    'params' : {} 	
+    }; 
+    </script> 
+    
+    <script type="text/javascript" src="//www.highperformanceformat.com/8e3a2731e8d3e94c8a33347b30eb461b/invoke.js"></script>
+ </div>
+</div>
 
+        
+                </article>
+
+
+                <div class="post-author-box">
+                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Photo of the author, Alex Rivers">
+                    <div>
+                        <h4>About Alex Rivers</h4>
+                        <p>Alex is a travel writer and photographer with a passion for mountain landscapes and remote cultures.</p>
+                    </div>
+                </div>
+
+                <!-- NEW: Similar Articles Section -->
+                <section class="related-posts">
+                    <h3 class="section-title">You Might Also Like</h3>
+                    <div class="related-posts-grid">
+                        <article class="post-card">
+                            <a href="#"><img src="https://images.unsplash.com/photo-1528181304800-259b08848526?w=400" alt="Icelandic waterfall" class="post-image"></a>
+                            <div class="post-card-content">
+                                <h4 class="post-title"><a href="#">Hiking Iceland's Glacial Trails</a></h4>
+                            </div>
+                        </article>
+                        <article class="post-card">
+                            <a href="#"><img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=400" alt="Canoe on a calm lake" class="post-image"></a>
+                            <div class="post-card-content">
+                                <h4 class="post-title"><a href="#">A Quiet Morning on Lake Bled</a></h4>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+            </div>
+
+<!-- Responsive Ad Container Start -->
+<div class="responsive-ad-container">
+    <div class="earn" style="margin: 0;">
+      <script async="async" data-cfasync="false" src="//pl27164665.profitableratecpm.com/db668f9715fca7bae899e9ceeb02814e/invoke.js"></script> <div id="container-db668f9715fca7bae899e9ceeb02814e"></div>
+    </div>
+</div>
+                   
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <div class="sidebar-widget">
+                    <h3 class="widget-title">Featured Destinations</h3>
+                    <ul class="category-list" style="list-style: none;">
+                        <li><a href="#" style="color: var(--text-dark-brown); font-weight: 700; display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid var(--border-light);">The Alps <span style="color: var(--text-medium-gray);">(5)</span></a></li>
+                        <li><a href="#" style="color: var(--text-dark-brown); font-weight: 700; display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid var(--border-light);">Southeast Asia <span style="color: var(--text-medium-gray);">(12)</span></a></li>
+                    </ul>
+                </div>
+            </aside>
+        </div>
+        
+    </main>
+   
+
+
+        <!-- NEW: Next/Previous Post Navigation -->
+        <div class="container">
+            <nav class="post-navigation">
+                <a href="#" class="prev-post">
+                    <div class="nav-label"><i class="fas fa-arrow-left"></i> Previous Post</div>
+                    <h4 class="nav-title">A Quiet Morning on Lake Bled</h4>
+                </a>
+                <a href="#" class="next-post">
+                    <div class="nav-label">Next Post <i class="fas fa-arrow-right"></i></div>
+                    <h4 class="nav-title">The Hidden Colors of Lisbon's Alleys</h4>
+                </a>
+            </nav>
+        </div>
+        
+    
     <footer class="site-footer">
         <div class="container">
             <div class="footer-grid">
@@ -233,50 +650,36 @@
         </div>
     </footer>
 
-    <!-- NEW: JavaScript for Search Functionality -->
     <script>
-        // --- Header Scroll Effect ---
+        // Header scroll effect
         const header = document.querySelector('.site-header');
         window.addEventListener('scroll', () => {
             header.classList.toggle('scrolled', window.scrollY > 10);
         });
 
-        // --- Live Search Functionality ---
-        document.addEventListener('DOMContentLoaded', () => {
-            const searchInput = document.getElementById('search-input');
-            const storyGrid = document.getElementById('story-grid');
-            const allPosts = storyGrid.querySelectorAll('.post-card');
-            const noResultsMessage = document.getElementById('no-results-message');
-            const searchForm = document.querySelector('.search-form');
-
-            // Prevent the form from submitting and reloading the page
-            searchForm.addEventListener('submit', (e) => {
-                e.preventDefault();
-            });
-
-            // The main filter function
-            const filterStories = () => {
-                const searchTerm = searchInput.value.toLowerCase().trim();
-                let visibleCount = 0;
-
-                allPosts.forEach(post => {
-                    const title = post.querySelector('.post-title').textContent.toLowerCase();
-                    const shouldShow = title.includes(searchTerm);
+        // "Copy Link" button functionality
+        const copyLinkBtn = document.getElementById('copy-link-btn');
+        if (copyLinkBtn) {
+            copyLinkBtn.addEventListener('click', (event) => {
+                event.preventDefault();
+                const url = window.location.href;
+                navigator.clipboard.writeText(url).then(() => {
+                    const icon = copyLinkBtn.querySelector('i');
+                    const originalIconClass = 'fa-link';
+                    const successIconClass = 'fa-check';
                     
-                    post.style.display = shouldShow ? 'block' : 'none';
-
-                    if (shouldShow) {
-                        visibleCount++;
-                    }
+                    icon.classList.remove(originalIconClass);
+                    icon.classList.add(successIconClass);
+                    
+                    setTimeout(() => {
+                        icon.classList.remove(successIconClass);
+                        icon.classList.add(originalIconClass);
+                    }, 2000);
+                }).catch(err => {
+                    console.error('Failed to copy text: ', err);
                 });
-
-                // Show or hide the "no results" message
-                noResultsMessage.style.display = visibleCount === 0 ? 'block' : 'none';
-            };
-
-            // Listen for input in the search bar to filter in real-time
-            searchInput.addEventListener('input', filterStories);
-        });
+            });
+        }
     </script>
 </body>
 </html>
