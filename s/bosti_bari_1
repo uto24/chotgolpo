@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Category: The Alps | The Nomad's Chronicle</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        /* --- CSS Custom Properties (Theme: The Nomad's Chronicle) --- */
+        :root {
+            --background-beige: #FDF8F0;
+            --surface-sand: #FFFFFF;
+            --text-dark-brown: #433A3F;
+            --text-medium-gray: #757575;
+            --accent-orange: #E86A33;
+            --dark-green: #2C3E2A;
+            --border-light: #eaeaea;
+            --shadow-light: 0 5px 15px rgba(0, 0, 0, 0.05);
+            --shadow-medium: 0 8px 30px rgba(0, 0, 0, 0.1);
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Lato', sans-serif;
+        }
+
+        /* --- Global Styles & Reset --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--font-body);
+            background-color: var(--background-beige);
+            color: var(--text-dark-brown);
+            line-height: 1.7;
+            font-size: 17px;
+        }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+        h1, h2, h3, h4 { font-family: var(--font-heading); color: var(--text-dark-brown); }
+        a { text-decoration: none; color: var(--accent-orange); transition: color 0.3s ease; }
+        a:hover { color: #c45425; }
+        img { max-width: 100%; height: auto; display: block; border-radius: 8px; }
+
+        /* --- Header --- */
+        .site-header {
+            position: fixed; width: 100%; z-index: 1000;
+            padding: 25px 0;
+            transition: background-color 0.3s ease, padding 0.3s ease, box-shadow 0.3s ease;
+        }
+        .site-header.scrolled {
+            background-color: rgba(255, 255, 255, 0.95); padding: 15px 0;
+            box-shadow: var(--shadow-light); backdrop-filter: blur(5px);
+        }
+        .site-header .container { display: flex; justify-content: space-between; align-items: center; }
+        .logo a { font-family: var(--font-heading); font-size: 1.8rem; color: var(--dark-green); }
+        .main-nav ul { list-style: none; display: flex; gap: 35px; }
+        .main-nav a { font-weight: 700; color: var(--text-dark-brown); }
+        .main-nav a:hover, .main-nav a.active { color: var(--accent-orange); }
+        
+        /* Category Page Header */
+        .page-header {
+            padding-top: 150px; padding-bottom: 50px; text-align: center;
+            background-color: #f8f3eb; border-bottom: 1px solid var(--border-light);
+        }
+        .page-header .header-subtitle {
+            text-transform: uppercase; font-weight: 700; letter-spacing: 1px;
+            font-size: 0.9rem; color: var(--text-medium-gray); margin-bottom: 10px;
+        }
+        .page-header .header-title { font-size: 3.5rem; margin-bottom: 10px; }
+        .page-header .story-count { font-size: 1rem; color: var(--text-medium-gray); }
+
+        /* Search System */
+        .search-section { padding: 40px 0; background-color: var(--surface-sand); }
+        .search-form {
+            display: flex; max-width: 700px; margin: 0 auto;
+            box-shadow: var(--shadow-medium); border-radius: 8px; overflow: hidden;
+        }
+        .search-form input[type="search"] {
+            flex: 1; border: none; padding: 18px 25px; font-size: 1.1rem;
+            font-family: var(--font-body); color: var(--text-dark-brown); outline: none;
+        }
+        .search-form button {
+            background-color: var(--dark-green); border: none; color: #fff;
+            padding: 0 30px; font-size: 1.1rem; font-weight: 700; cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .search-form button:hover { background-color: #1a2519; }
+        .search-form button i { margin-right: 10px; }
+
+        /* Story Grid */
+        .category-grid-container { padding: 60px 0; }
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+        }
+        .post-card {
+            background: var(--surface-sand); border-radius: 8px; box-shadow: var(--shadow-light);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .post-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-medium); }
+        .post-card .post-image { height: 220px; width: 100%; object-fit: cover; border-bottom-left-radius: 0; border-bottom-right-radius: 0; }
+        .post-card-content { padding: 25px; }
+        .post-card-content .post-category { font-weight: 700; font-size: 0.8rem; text-transform: uppercase; color: var(--accent-orange); margin-bottom: 10px; }
+        .post-card-content .post-title { font-size: 1.5rem; margin-bottom: 10px; }
+        .post-card-content .post-meta { font-size: 0.9rem; color: var(--text-medium-gray); }
+
+        /* NEW: "No Results" Message Style */
+        .no-results {
+            text-align: center;
+            font-size: 1.2rem;
+            color: var(--text-medium-gray);
+            padding: 40px 0;
+            font-weight: 700;
+        }
+
+        /* Footer */
+        .site-footer { background: var(--dark-green); color: #ccc; padding: 60px 0 30px; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
+        .footer-widget h4 { color: #fff; font-family: var(--font-heading); margin-bottom: 15px; }
+        .footer-widget p, .footer-widget a { color: #bbb; font-size: 0.9rem; }
+        .footer-widget a:hover { color: var(--accent-orange); }
+        .footer-widget ul { list-style: none; }
+        .footer-widget li { margin-bottom: 10px; }
+        .footer-socials a { font-size: 1.4rem; margin-right: 15px; color: #bbb; }
+        .footer-bottom { text-align: center; padding-top: 30px; border-top: 1px solid #4a5c48; font-size: 0.9rem; }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .main-nav ul { display: none; }
+            .page-header { padding-top: 120px; }
+            .page-header .header-title { font-size: 2.5rem; }
+            .footer-grid { grid-template-columns: 1fr; text-align: center; }
+            .category-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="site-header scrolled">
+        <div class="container">
+            <h1 class="logo"><a href="#">The Nomad's Chronicle</a></h1>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#" class="active">Destinations</a></li>
+                    <li><a href="#">Stories</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <p class="header-subtitle">Browsing Category</p>
+                <h1 class="header-title">The Alps</h1>
+                <p class="story-count">5 stories found in this category</p>
+            </div>
+        </section>
+
+        <section class="search-section">
+            <div class="container">
+                <form class="search-form" action="#" method="get">
+                    <input type="search" id="search-input" name="query" placeholder="Search stories in The Alps...">
+                    <button type="submit"><i class="fas fa-search"></i> Search</button>
+                </form>
+            </div>
+        </section>
+
+        <div class="container category-grid-container">
+            <div class="category-grid" id="story-grid">
+                <article class="post-card">
+                    <a href="#"><img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800" alt="Majestic mountain valley" class="post-image"></a>
+                    <div class="post-card-content">
+                        <p class="post-category">The Alps</p>
+                        <h3 class="post-title"><a href="#">Finding Solitude in the Dolomites</a></h3>
+                        <p class="post-meta">Oct 28, 2023</p>
+                    </div>
+                </article>
+                <article class="post-card">
+                    <a href="#"><img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=800" alt="Canoe on a calm lake" class="post-image"></a>
+                    <div class="post-card-content">
+                        <p class="post-category">The Alps</p>
+                        <h3 class="post-title"><a href="#">A Quiet Morning on Lake Bled, Slovenia</a></h3>
+                        <p class="post-meta">Oct 08, 2023</p>
+                    </div>
+                </article>
+                <article class="post-card">
+                    <a href="#"><img src="https://images.unsplash.com/photo-1528181304800-259b08848526?w=800" alt="Icelandic waterfall" class="post-image"></a>
+                    <div class="post-card-content">
+                        <p class="post-category">The Alps</p>
+                        <h3 class="post-title"><a href="#">Hiking Switzerland's Glacial Trails</a></h3>
+                        <p class="post-meta">Sep 21, 2023</p>
+                    </div>
+                </article>
+                 <article class="post-card">
+                    <a href="#"><img src="https://images.unsplash.com/photo-1533929736458-ca588d08c8be?w=800" alt="Chamonix valley" class="post-image"></a>
+                    <div class="post-card-content">
+                        <p class="post-category">The Alps</p>
+                        <h3 class="post-title"><a href="#">Chamonix: A Summer Adventure Guide</a></h3>
+                        <p class="post-meta">Aug 15, 2023</p>
+                    </div>
+                </article>
+                 <article class="post-card">
+                    <a href="#"><img src="https://images.unsplash.com/photo-1590141228518-97143c79a409?w=800" alt="Hallstatt, Austria" class="post-image"></a>
+                    <div class="post-card-content">
+                        <p class="post-category">The Alps</p>
+                        <h3 class="post-title"><a href="#">The Fairytale Village of Hallstatt</a></h3>
+                        <p class="post-meta">Jul 30, 2023</p>
+                    </div>
+                </article>
+            </div>
+            <!-- NEW: "No Results" Message Element -->
+            <p id="no-results-message" class="no-results" style="display: none;">
+                Sorry, no stories found matching your search.
+            </p>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-widget"><h4>The Nomad's Chronicle</h4><p>Exploring the world, one story at a time.</p></div>
+                <div class="footer-widget"><h4>Explore</h4><ul><li><a href="#">Travel Guides</a></li><li><a href="#">Photo Essays</a></li></ul></div>
+                <div class="footer-widget"><h4>Connect</h4><div class="footer-socials"><a href="#"><i class="fab fa-instagram"></i></a> <a href="#"><i class="fab fa-twitter"></i></a></div></div>
+            </div>
+            <div class="footer-bottom">© 2023 The Nomad's Chronicle. All rights reserved.</div>
+        </div>
+    </footer>
+
+    <!-- NEW: JavaScript for Search Functionality -->
+    <script>
+        // --- Header Scroll Effect ---
+        const header = document.querySelector('.site-header');
+        window.addEventListener('scroll', () => {
+            header.classList.toggle('scrolled', window.scrollY > 10);
+        });
+
+        // --- Live Search Functionality ---
+        document.addEventListener('DOMContentLoaded', () => {
+            const searchInput = document.getElementById('search-input');
+            const storyGrid = document.getElementById('story-grid');
+            const allPosts = storyGrid.querySelectorAll('.post-card');
+            const noResultsMessage = document.getElementById('no-results-message');
+            const searchForm = document.querySelector('.search-form');
+
+            // Prevent the form from submitting and reloading the page
+            searchForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+            });
+
+            // The main filter function
+            const filterStories = () => {
+                const searchTerm = searchInput.value.toLowerCase().trim();
+                let visibleCount = 0;
+
+                allPosts.forEach(post => {
+                    const title = post.querySelector('.post-title').textContent.toLowerCase();
+                    const shouldShow = title.includes(searchTerm);
+                    
+                    post.style.display = shouldShow ? 'block' : 'none';
+
+                    if (shouldShow) {
+                        visibleCount++;
+                    }
+                });
+
+                // Show or hide the "no results" message
+                noResultsMessage.style.display = visibleCount === 0 ? 'block' : 'none';
+            };
+
+            // Listen for input in the search bar to filter in real-time
+            searchInput.addEventListener('input', filterStories);
+        });
+    </script>
+</body>
+</html>
